@@ -114,7 +114,7 @@ form.addEventListener("submit", (event) => {
 
   document.getElementById("nota-calculo").textContent = tipo === "EC"
     ? "EC: a taxa é descontada do valor informado. O valor da parcela considera a venda sem acréscimo; o valor liberado já considera o desconto da taxa."
-    : "Portador: a taxa exibida segue a fórmula informada (x − 100) ÷ 10. O acréscimo é dividido entre as parcelas e o valor liberado corresponde ao valor original informado.";
+    : "Portador: a taxa é repassada e o acréscimo é dividido entre as parcelas e o valor liberado corresponde ao valor original informado.";
 
   resultados.hidden = false;
   resultados.scrollIntoView({ behavior: "smooth", block: "start" });
