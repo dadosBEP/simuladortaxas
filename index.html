@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulador de taxas por bandeira, modalidade e faixa de faturamento.">
+  <title>Simulador de Taxas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="brand-mark">B</div>
+      <div>
+        <p class="eyebrow">SIMULADOR COMERCIAL</p>
+        <h1>Simulador de taxas</h1>
+        <p class="subtitle">Calcule valores, parcelas e recebíveis por modalidade.</p>
+      </div>
+    </header>
+
+    <section class="panel form-panel" aria-labelledby="dados-title">
+      <div class="section-heading">
+        <h2 id="dados-title">Dados da simulação</h2>
+        <button type="button" class="text-button" id="limpar">Limpar campos</button>
+      </div>
+
+      <form id="simulador-form">
+        <div class="fields">
+          <label class="field">
+            <span>Valor da venda (R$)</span>
+            <input id="valor" name="valor" type="number" min="0.01" step="0.01" placeholder="Ex.: 1500,00" required>
+          </label>
+
+          <label class="field">
+            <span>Bandeira</span>
+            <select id="bandeira" name="bandeira">
+              <option value="Visa">Visa</option>
+              <option value="Master">Master</option>
+              <option value="Elo">Elo</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Tipo de taxa</span>
+            <select id="tipo" name="tipo">
+              <option value="EC">EC</option>
+              <option value="portador">Portador</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Faixa de faturamento</span>
+            <select id="faixa" name="faixa">
+              <option value="ate20">Até R$ 20 mil</option>
+              <option value="mais20">Acima de R$ 20 mil</option>
+            </select>
+          </label>
+        </div>
+        <button class="primary-button" type="submit">Calcular taxas</button>
+      </form>
+    </section>
+
+    <section class="results" id="resultados" hidden aria-live="polite">
+      <div class="results-top">
+        <div>
+          <p class="eyebrow">RESULTADO DA SIMULAÇÃO</p>
+          <h2 id="resumo">Visa · EC · Até R$ 20 mil</h2>
+        </div>
+        <div class="value-chip">
+          <span>Valor informado</span>
+          <strong id="valor-resumo">R$ 0,00</strong>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Modalidade</th>
+              <th>Taxa</th>
+              <th>Valor da parcela</th>
+              <th>Valor liberado</th>
+            </tr>
+          </thead>
+          <tbody id="resultado-body"></tbody>
+        </table>
+      </div>
+      <p class="footnote" id="nota-calculo"></p>
+    </section>
+
+    <footer>Simulador de taxas · Confira as condições comerciais vigentes antes de apresentar a proposta.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
